@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://10.0.15.21/lab/bootstrap/css/bootstrap.min.css">
+    <script src="http://10.0.15.21/lab/bootstrap/js/bootstrap.min.js"></script>
+    <title>Project Web Pro</title>
+    <style>
+        body {
+            font-family: "Roboto Mono", monospace;
+            background-color: black;
+        }
+        .container {
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            border-bottom: 5px solid rgb(70, 237, 131);
+            flex-wrap: wrap;
+            gap: 10px; 
+        }
+
+        .nav-text {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: bold;
+            color: white;
+        }
+
+        .filter-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        select, .btn {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+        }
+
+        select:focus, .btn:focus {
+            outline: none;
+            box-shadow: 0 0 5px white;
+        }
+
+        select:hover {
+            cursor: pointer;
+        }
+
+        .food-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: clamp(10px, 2vw, 20px);
+            padding: clamp(1rem, 3vw, 2rem);
+            margin: 0 auto;
+            background-color: rgb(255, 255, 255);
+            background-image: url("view.avif");
+            background-size: cover;
+            background-position: center;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 1600px;
+            border: 3px solid rgb(70, 237, 131);
+        }
+
+        .food {
+            background-color: black;
+            border-radius: 15px;
+            box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 15px;
+            border: 2px solid white;
+            min-width: 200px;
+            height: auto;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .food img {
+            border-radius: 10px;
+            width: 100%;
+            object-fit: cover;
+            margin: 5px auto;
+            height: clamp(250px, 20vw, 250px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+
+
+        .food:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 3px solid rgb(70, 237, 131);
+        }
+
+        /* @media (max-width: 800px){
+            .food-container{ grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 700px){
+            .food-container{ grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px){
+            .food-container{ grid-template-columns: repeat(1, 1fr);
+            }
+        } */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .filter-container {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-text {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .food {
+                padding: 10px;
+            }
+
+            .description {
+                padding: 8px;
+            }
+        }
+
+        .all-menu {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            background-color: black;
+            padding: 2rem;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: clamp(12px, 1.5vw, 14px);
+            background: none;
+            border-bottom: 1px solid rgb(0, 0, 0);
+            text-align: left;
+            color: rgb(61, 241, 184);
+            padding: 5px 0;
+        }
+
+        .price {
+            font-size: clamp(10px, 1.2vw, 12px);
+            color: rgb(0, 0, 0);
+            background-color: rgb(61, 241, 184);
+            border-radius: 10px;
+            padding: 2px 8px;
+            text-align: center;
+        }
+
+        .description {
+            background-color: #4a4a4a;
+            color: white;
+            font-size: clamp(10px, 1.2vw, 12px);
+            padding: 10px;
+            border-radius: 10px;
+
+            margin-top: 10px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <div class="nav-text">Oklahoma City, RAMSAY's KITCHEN
+            <button class="btn btn-outline-success" type="submit"><a href="home.html">Home</a></button>
+            <button class="btn btn-outline-success" type="submit"><a href="Main.html">Main</a></button>
+            <button class="btn btn-outline-success" type="submit"><a href="Appitizer.html">Appitizer</a></button>
+            <button class="btn btn-outline-success" type="submit"><a href="Dessert.html">Dessert</a></button>
+            <button class="btn btn-outline-success" type="submit"><a href="Drink.html">Drink</a></button>
+            <button class="btn btn-outline-success" type="submit"><a href="about.html" style="align-self: left">About</a></button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="all-menu" id="menu-header"> Dessert:</div>
+            <div class="food-container">
+                <div class="food">
+                    <img src="img/image12.jpg" alt="">
+                    <div class="header">
+                        <span>Sticky Toffee Pudding</span>
+                        <div class="price">$16</div>
+                    </div>
+                </div>
+                <div class="food">
+                    <img src="img/image13.jpg" alt="">
+                    <div class="header">    
+                        <span>Vanilla Cheesecake</span>
+                        <div class="price">$16</div>
+                    </div>
+                </div>
+                <div class="food">
+                    <img src="img/image14.jpg" alt="">
+                    <div class="header">    
+                        <span>Chocolate Fondant</span>
+                        <div class="price">$16</div>
+                    </div>
+                </div>
+        </div>
+</body>
+</html>

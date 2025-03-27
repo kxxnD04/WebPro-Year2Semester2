@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            background-color: rgb(255, 255, 255);
+
+
+        }
+        .container {
+            padding-top: 50px;
+        }
+        .add_button {
+            color: white;
+            text-decoration: none;
+        }
+        .add_button:hover {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+    <title>Form to create ToDo Lists</title>
+</head>
+<body>
+    <div class="container" >
+        <h1>Create a New ToDo</h1>
+        <form role="form" action="/form" method="POST">
+            <label >Title:</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+            <br>
+            <label >Description:</label>
+            <textarea type="text" class="form-control" id="description"  name="description" placeholder="Enter description" rows="4"></textarea>
+            <br>
+            <label for="text">Deadline:</label>
+            <input type="date" class="form-control" id="deadline" name="deadline" placeholder="Enter Title">
+            <br>
+
+            <button class="btn btn-success" type="submit">Create ToDo</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="http://webdev.it.kmitl.ac.th/lab/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://webdev.it.kmitl.ac.th/lab/bootstrap/css/bootstrap.min.css">
+    <title>show data</title>
+</head>
+<body>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Dept Name</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% data.forEach((item) => { %> 
+                <tr>
+                    <td><%= item.ID %></td>
+                    <td><%= item.name %></td>
+                    <td><%= item.dept_name %></td>
+                    <td><%= item.salary %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>
