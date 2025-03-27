@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Concert+One&family=Hind+Mysuru:wght@300;400;500;600;700&family=Itim&family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <title>Lab5/3</title>
+    <style>
+        * {
+            font-family: "Afacad Flux", serif;
+        }
+        .btn-primary {
+        color: #fff;
+        background-color: #2e4dec;
+        border-color: #000000; 
+        }
+        .btn-primary:hover{
+            color: #fff;
+            background-color: #0af869;
+            border-color: #000000;
+            cursor: pointer;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container" id="body">
+        <!-- for js -->
+    </div>
+    <br></br>
+    <form>
+        <button onclick="show_score();" type="button" class="btn btn-primary">Submit</button>
+    </form>
+    
+    <script>
+        let questionData = [];
+        function load_data(data) {
+            questionData = data;
+            data.forEach(add_problem);
+	    }
+        fetch('http://10.0.15.21/lab/lab5/json/questionAnswerData.json')
+            .then(response => response.json())
+            .then(data => load_data(data))
+            .catch(error => console.log('error', error));
+
+
+        function add_problem(dic, index){
+            let tbody = document.getElementById("body");
+            let problem = document.createElement("div");
+            let head = document.createElement("h3")
+            let ratio1 = document.createElement("input")
+            let label1 = document.createElement("label")
+            let ratio2 = document.createElement("input")
+            let label2 = document.createElement("label")
+            let ratio3 = document.createElement("input")
+            let label3 = document.createElement("label")
+            let br1 = document.createElement("br");
+            let br2 = document.createElement("br");
+            
+            let groupName = "question_" + index; // ทำให้เลือกตอบได้ข้อเดียว โดยใช้ groupname อันเดียวกัน
+            ratio1.name = groupName;
+            ratio2.name = groupName;
+            ratio3.name = groupName;
+
+            problem.className = "form-check";
+            ratio1.className = "form-check-input";
+            ratio1.type = "radio";
+            ratio1.value = 'a';
+            label1.className = "form-check-label";
+            
+            ratio2.className = "form-check-input";
+            ratio2.type = "radio";
+            ratio2.value = 'b';
+            label2.className = "form-check-label";
+
+            ratio3.className = "form-check-input";
+            ratio3.type = "radio";
+            ratio3.value = 'c';
+            label3.className = "form-check-label";
+
+            head.textContent = (index + 1) + ". " + dic.question;
+            label1.textContent = "A. " + dic.answers.a;
+            label2.textContent = "B. " + dic.answers.b;
+            label3.textContent = "C. " + dic.answers.c;
+
+            if (dic.answers.correct == "a"){
+                ratio1.checked = true;
+            }else if(dic.answers.correct == "b"){
+                ratio2.checked = true;
+            }else{
+                ratio3.checked = true;
+            }
+
+            problem.appendChild(head);
+            problem.appendChild(ratio1);
+            problem.appendChild(label1);
+            problem.appendChild(br1);
+            problem.appendChild(ratio2);
+            problem.appendChild(label2);
+            problem.appendChild(br2);
+            problem.appendChild(ratio3);
+            problem.appendChild(label3);
+            tbody.appendChild(problem);
+        }
+        function show_score(){
+            questionData.forEach((question, index) => {
+                let score = 0;
+                let selected = document.querySelector(`input[name="question_${index}"]:checked`);
+                if (selected && selected.value === question.answers.correct) {
+                    score++;
+                }
+            });
+
+            alert("Your scores are " + score + "/10.")
+        }
+    </script>
+</body>
+</html>

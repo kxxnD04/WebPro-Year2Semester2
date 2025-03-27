@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab4/2</title>
+    <style>
+        body {
+            background-color: rgb(237, 237, 237);
+            font-family: sans-serif;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(255, 251, 0);
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <label id="name">ชื่อ :</label>
+    <input type="text" ><br><br>
+    
+    <label id="surname">นามสกุล :</label>
+    <input type="text" ><br><br>
+    
+    <label id="country">ประเทศ :</label>
+    <select name="country" >
+        <option id="00">กรุณาเลือกประเทศจ้าา</option>
+        <option id="TH">ไทย</option>
+        <option id="VN">เวียดนาม</option>
+        <option id="LA">ลาว</option>
+        <option id="ML">มาเลย์เซีย</option>
+        <option id="SA">สิงคโปร์</option>
+        <option id="PHI">ฟิลิปปินส์</option>
+        <option id="MY">เมียนมาร์</option>
+        <option id="CM">กัมพูชา</option>
+        <option id="BR">บรูไน</option>
+
+    </select><br><br>
+
+    <button onclick="change()" id="btn">เปลี่ยนเป็นภาษาอังกฤษ</button> <br><br>
+
+    <script>
+        let isChange = 1;
+        function change() {
+            if (isChange){
+                document.getElementById("name").textContent = "First Name :";
+                document.getElementById("surname").textContent = "Last Name :";
+                document.getElementById("country").textContent = "Country :";
+                document.getElementById("00").textContent = "Select Country Jaa";
+                document.getElementById("TH").textContent = "Thailand";
+                document.getElementById("VN").textContent = "Vietnam";
+                document.getElementById("LA").textContent = "Laos";
+                document.getElementById("ML").textContent = "Malaysia";
+                document.getElementById("SA").textContent = "Singapore";
+                document.getElementById("PHI").textContent = "Philippines";
+                document.getElementById("MY").textContent = "Myanmar";
+                document.getElementById("CM").textContent = "Cambodia";
+                document.getElementById("BR").textContent = "Brunai";
+                document.getElementById("btn").textContent = "Change to Thai";
+            }else{
+                document.getElementById("name").textContent = "ชื่อ :";
+                document.getElementById("surname").textContent = "นามสกุล :";
+                document.getElementById("country").textContent = "ประเทศ :";
+                document.getElementById("00").textContent = "กรุณาเลือกประเทศจ้าา";
+                document.getElementById("TH").textContent = "ไทย";
+                document.getElementById("VN").textContent = "เวียดนาม";
+                document.getElementById("LA").textContent = "ลาว";
+                document.getElementById("ML").textContent = "มาเลย์เซีย";
+                document.getElementById("SA").textContent = "สิงคโปร์";
+                document.getElementById("PHI").textContent = "ฟิลิปปินส์";
+                document.getElementById("MY").textContent = "เมียนมาร์";
+                document.getElementById("CM").textContent = "กัมพูชา";
+                document.getElementById("BR").textContent = "บรูไน";
+                document.getElementById("btn").textContent = "เปลี่ยนเป็นภาษาอังกฤษ";
+
+            }
+            isChange = !isChange;
+        }
+
+    </script>
+  </body>
+  </html>

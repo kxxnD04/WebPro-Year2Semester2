@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: wheat;
+            font-family: sans-serif;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: red;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <label for="num1">Number 1:</label>
+    <input type="number" id="num1"><br><br>
+    
+    <label for="num2">Number 2:</label>
+    <input type="number" id="num2"><br><br>
+    
+    <button onclick="calculate()">Calculate</button> <br><br>
+    
+    <p><strong>Result: <span id="result"></span></strong></p>
+  
+    <div id="history"></div>
+  
+    <script>
+        let calculationHistory = [];
+        
+        function calculate() {
+          const num1 = parseInt(document.getElementById('num1').value);
+          const num2 = parseInt(document.getElementById('num2').value);
+          
+          const sum = num1 + num2;
+          
+          document.getElementById('result').innerText = sum;
+  
+          calculationHistory.push(`${num1} + ${num2} = ${sum}`);
+  
+           updateHistory();
+        }
+          
+        function updateHistory() {
+            const historyDiv = document.getElementById('history');
+            historyDiv.innerHTML = '';
+            for (const calc of calculationHistory){
+                const p = document.createElement('p');
+                p.textContent = calc;
+                historyDiv.appendChild(p);
+            }
+        }
+    </script>
+  </body>
+  </html>

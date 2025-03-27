@@ -1,0 +1,34 @@
+*{
+    font-family: "Roboto Flex", serif;
+}
+
+body {
+    text-align: left;
+}
+td{
+    text-align: center;
+}
+.number{
+    height: 150px;
+    width: 150px;
+}
+
+.numberText{
+    width: 150px;
+    font-size: 100px;
+    border-radius: 30px;
+    font-weight: 600;
+    background-color: black;
+    color: white;
+}
+#img5{
+    color: black;
+    background-color: white;
+    border-color: black;
+    width: 130px;
+    border: 12px solid black;
+}
+button{
+    font-size: 36px;
+    border-radius: 10px;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .FoodContainer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .Food {
+            width: 100%;
+            max-width: 300px;
+            height: 350px;
+            text-align: left;
+            background-color: #000;
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .Food img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .Food h3 {
+            margin: 10px 0 0 0;
+            padding: 0 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="FoodContainer">
+        <div class="Food">
+            <h3>Pad Thai</h3>
+            <img src="EWL-shrimp-pad-thai-step-05-1190-87e6eec4f9ec48f288489d7f06ea01fc.jpg" alt="Pad Thai">
+        </div>
+        <div class="Food">
+            <h3>Tom Yum Goong</h3>
+            <img src="Tom-Yum-07-mini.webp" alt="Tom Yum Goong">
+        </div>
+        <div class="Food">
+            <h3>Khao Soi</h3>
+            <img src="khao-soi-redo.jpg" alt="Khao Soi">
+        </div>
+        <div class="Food">
+            <h3>Pad Kra Pao</h3>
+            <img src="Pad-Kra-Pao-10.jpg" alt="Pad Kra Pao">
+        </div>
+        <div class="Food">
+            <h3>Mango Sticky Rice</h3>
+            <img src="11-Best-Thai-Food-Dishes-Mango-Sticky-Rice-1120x732.jpg" alt="Mango Sticky Rice">
+        </div>
+        <div class="Food">
+            <h3>Plaa Goong</h3>
+            <img src="ZESTY-SHRIMP-SALAD-prep-photo-31.webp" alt="Plaa Goong">
+        </div>
+    </div>
+</body>
+</html>

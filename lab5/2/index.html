@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&family=Concert+One&family=Hind+Mysuru:wght@300;400;500;600;700&family=Itim&family=Marcellus&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans+Caption:wght@400;700&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <title>Lab5/2</title>
+    <style>
+        * {
+            font-family: "Afacad Flux", serif;
+        }
+        body {
+            justify-items: center;
+            justify-content: center;
+        }
+        .studentContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 100%;
+            max-width: fit-content;
+            gap: 5px;
+        }
+
+        .student {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 220px;
+            text-align: center;
+        }
+        .student img {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        .student h3, .student p {
+            text-align: left; 
+            margin-left: 15px;
+    }
+    </style>
+</head>
+<body>
+    <div class="studentContainer" id="container">
+        <!-- write from js function -->
+    </div>
+
+    <script>
+        function load_data(data) {
+            data.forEach(add_student);
+            console.log("Hello world");
+	    }
+        fetch('student-scores.json')
+            .then(response => response.json())
+            .then(data => load_data(data))
+            .catch(error => console.log('error', error));
+
+
+        function add_student(dic, index){
+            let container = document.getElementById("container");
+            let student = document.createElement("div");
+            let picture = document.createElement('img');
+            let name = document.createElement('h3');
+            let phy = document.createElement('p');
+            let math = document.createElement('p');
+            let eng = document.createElement('p');
+            student.className = "student";
+
+            picture.src = ["http://10.0.15.21/lab/lab5/images/img_female.png", "http://10.0.15.21/lab/lab5/images/img_male.png"][Number(dic.gender == "Male")];
+            name.textContent = (index + 1) + ". " + dic.name; 
+            phy.textContent = "Physics : " + dic.physics;
+            math.textContent = "Mathmatics : " + dic.maths
+            eng.textContent = "English : " + dic.english;
+
+            student.appendChild(picture);
+            student.appendChild(name);
+            student.appendChild(phy);
+            student.appendChild(math);
+            student.appendChild(eng);
+
+            container.appendChild(student)
+        }
+    </script>
+</body>
+</html>

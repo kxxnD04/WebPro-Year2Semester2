@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+
+
+    <title>Lab 6 / 3</title>
+    <style>
+
+        body {
+            font-family: "Roboto Mono", monospace;
+            display: flex;
+            padding: 2rem;
+        }
+
+        .cardContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            width: 100%;
+            gap: 10px;
+        }
+
+        .card{
+            text-align: left;
+        }
+
+        .card2{
+            text-align: left;
+            background-color: rgb(172, 177, 176);
+            justify-items: left;
+            padding-left: 50px;
+            padding-bottom: 75px;
+        }
+        @media (max-width: 1100px){
+            .cardContainer{ grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 900px){
+            .cardContainer{ grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 700px){
+            .cardContainer{ grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="card2">
+            <h1>Programming Language</h1>
+            <article>
+                A programming language is a set of instructions written by a programmer to deliver instructions to the computer to perform and accomplish a task. This set of instructions is usually viewed as incomprehensible code structured following a definite programming language syntax.
+
+Gaining a job in the IT industry is easy and also quite tough. You will need to possess both technical and non-technical skills. In terms of technical, the first and foremost skill any aspirant looking for a place in tech must acquire is the mastery of programming languages.
+
+Whether a newbie or a tech student, you might have already heard about programming languages. However, you need to know that the term ‘programming languages’ is abstract. There are various programming languages you may and may not have heard of, and each is categorised under different categories.
+            </article>
+        </div>
+
+
+        <div class="cardContainer">
+            <div class="card">
+                <h1>C</h1>
+                <article>
+                    C is a general-purpose programming language created by Dennis Ritchie at the Bell Laboratories in 1972.
+It is a very popular language, despite being old. The main reason for its popularity is because it is a fundamental language in the field of computer science.
+C is strongly associated with UNIX, as it was developed to write the UNIX operating system.
+                    </article>
+            </div>
+            
+            <div class="card">
+                <h1>Python</h1>
+                <article>
+                    Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together.
+                </article>
+            </div>
+
+
+
+            <div class="card">
+                <h1>Java</h1>
+                <article>
+                    Java is a widely-used programming language for coding web applications. It has been a popular choice among developers for over two decades, with millions of Java applications in use today. Java is a multi-platform, object-oriented, and network-centric language that can be used as a platform in itself. It is a fast, secure, reliable programming language for coding everything from mobile apps and enterprise software to big data applications and server-side technologies.
+                </article>
+            </div>
+
+            <div class="card">
+                <h1>Assembly</h1>
+                <article>
+                    An assembly language is a type of low-level programming language that is intended to communicate directly with a computer’s hardware. Unlike machine language, which consists of binary and hexadecimal characters, assembly languages are designed to be readable by humans.
+Low-level programming languages such as assembly language are a necessary bridge between the underlying hardware of a computer and the higher-level programming languages—such as Python or JavaScript—in which modern software programs are written.
+                </article>
+            </div>
+    
+        </div>
+    </div>
+</body>
+</html>

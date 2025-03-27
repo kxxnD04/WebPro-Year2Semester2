@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Practice</title>
+    <style>
+        table, th, td {
+
+            border-collapse: collapse;
+            text-align: center;
+            padding: 5px;
+        }
+        .score-bar {
+            position: relative;
+            width: 100%;
+            background-color: #f3f3f3;
+            border: 1px solid #ccc;
+            width: 500px;
+            height: 20px;
+            overflow: hidden;
+        }
+        .score-bar span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            display: inline-block;
+            text-align: left;
+            color: white;
+            line-height: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Scores</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Student</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Nancy Freehafer</td>
+            <td>
+                <div class="score-bar">
+                    <span style="width: 98%; background-color: gray;">98</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Andrew Cencini</td>
+            <td>
+                <div class="score-bar">
+                    <span style="width: 85%; background-color: blue;">85</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Jan Kotas</td>
+            <td>
+                <div class="score-bar">
+                    <span style="width: 65%; background-color: green;">65</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Mariya Sergienko</td>
+            <td>
+                <div class="score-bar">
+                    <span style="width: 72%; background-color: violet;">72</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Steven Thorpe</td>
+            <td>
+                <div class="score-bar">
+                    <span style="width: 69%; background-color: red;">69</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

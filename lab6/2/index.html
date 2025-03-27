@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://10.0.15.21/lab/bootstrap/css/bootstrap.min.css">
+    <script src="http://10.0.15.21/lab/bootstrap/js/bootstrap.min.js"></script>
+    <title>Lab 6 / 2</title>
+    <style>
+        body {
+            font-family: "Roboto Mono", monospace;
+            padding: 2rem;
+        }
+        .con{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 1200px;
+            max-width: fit-content;
+            gap: 10px;
+            justify-self: center;
+        }
+
+
+
+        .card{
+            border: 1px solid rgb(104, 104, 104);
+            width: 100%;
+        }
+
+        .card img{
+            width: 250px;
+            height: 250px;
+            margin-bottom: 5px;
+        }
+
+        .card h4{
+            text-align: center;
+        }
+
+        @media (max-width: 1000px) {
+            .con{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .con{
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>My Cats Image Gallery </h1>
+    <div class="con">
+        
+        <div class="card">
+            <img src="cat1.jpg" alt="">
+            <h4>Oliver</h4>
+        </div>
+        <div class="card">
+            <img src="cat2.jpg" alt="">
+            <h4>Milo</h4>
+        </div>
+        <div class="card">
+            <img src="cat3.jpg" alt="">
+            <h4>Leo</h4>
+        </div>
+        <div class="card">
+            <img src="cat4.jpg" alt="">
+            <h4>Charlie</h4>
+        </div>
+        <div class="card">
+            <img src="cat5.jpg" alt="">
+            <h4>Max</h4>
+        </div>
+        <div class="card">
+            <img src="cat6.jpg" alt="">
+            <h4>Luna</h4>
+        </div>
+        <div class="card">
+            <img src="cat7.jpg" alt="">
+            <h4>Bella</h4>
+        </div>
+        <div class="card">
+            <img src="cat8.jpg" alt="">
+            <h4>Lily</h4>
+        </div>
+
+    </div>
+</body>
+</html>

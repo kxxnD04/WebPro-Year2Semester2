@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"></head>
+    <title>lab4/3</title>
+    <style>
+        body {
+            background-color: rgb(237, 237, 237);
+            font-family: "Kanit", sans-serif;
+            justify-content: center;
+            justify-items: center;
+            text-align: center;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 4px;
+            border-color: white;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: rgb(17, 255, 255);
+            color: black;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table thead th{
+            background-color: #33c798; 
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>ตารางรายรับ-รายจ่าย</h1>
+    <h2>ยอดคงเหลือ</h2>
+    <h2 id="total">0</h2>
+
+    <div>
+        <input type="text" id="description" placeholder="รายการ">
+        <input type="number" id="amount" placeholder="จำนวน">
+        <select id="type">
+            <option value="expense">รายจ่าย</option>
+            <option value="income">รายรับ</option>
+        </select>
+        <input type="date" id="transactionDate">
+        <button onclick="update()" id="btn">เพิ่มรายการ</button> <br><br>
+    </div>
+    <br><br>
+    <div class="table table-bordered">
+        <table>
+            <thead>
+                <tr>
+                    <th>วันที่</th>
+                    <th>รายการ</th>
+                    <th>รายรับ</th>
+                    <th>รายจ่าย</th>
+                </tr>
+            </thead>
+            <tbody id="bodytable">
+                <!--  update() function -->
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+    
+        function update() {
+            let des = document.getElementById("description");
+            let amount = document.getElementById("amount");
+            let choice = document.getElementById("type");
+            let date = document.getElementById("transactionDate");
+            let total = document.getElementById("total");
+            let tbody = document.getElementById("bodytable")
+
+
+            let tr = document.createElement("tr");
+            let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            let td4 = document.createElement("td");
+
+            td1.appendChild(document.createTextNode(date.value));
+            td2.appendChild(document.createTextNode(des.value));
+
+            if (choice.value == "expense"){
+                td3.appendChild(document.createTextNode("0"));
+                td4.appendChild(document.createTextNode(amount.value));
+                total.textContent = (Math.max(Number(total.textContent) - Number(amount.value), 0)) + "";
+            }else{
+                td3.appendChild(document.createTextNode(amount.value));
+                td4.appendChild(document.createTextNode("0"));
+                total.textContent = (Number(total.textContent) + Number(amount.value)) + "";
+            }
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tbody.append(tr)
+
+            des.value = "";
+            amount.value = "";
+            choice.value = "expense";
+            date.value = "";
+        }
+
+    </script>
+  </body>
+  </html>
