@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรแกรมตัดเกรดนักศึกษา</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 2rem;
+        }
+        .container {
+            max-width: 700px;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="text-center mb-4">ระบบตัดเกรด</h2>
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">ลำดับ</th>
+                    <th scope="col">ชื่อ</th>
+                    <th scope="col">คะแนน</th>
+                    <th scope="col">เกรด</th>
+                </tr>
+            </thead>
+            <tbody id="student-table-body"></tbody>
+        </table>
+        <div class="text-center mt-4">
+            <button id="calculate-grade-btn" class="btn btn-primary btn-lg" onclick="calculateAndDisplayGrades()">คำนวนเกรด</button>
+        </div>
+    </div>
+
+    <script>
+        // ไม่ต้องใช้ addEventListener แล้ว
+        // โค้ดสามารถทำงานได้เลย เพราะ HTML ด้านบนถูกโหลดแล้ว
+
+        const studentNames = [
+            'สมชาย', 'สมหญิง', 'สมศรี', 'สมปอง', 
+            'สมเกียรติ', 'สมบัติ', 'สมฤดี', 'สมจิตร'
+        ];
+        
+        const tableBody = document.getElementById('student-table-body');
+
+        // ... ฟังก์ชันทั้งหมดเหมือนเดิม ...
+        function getRandomScore() {
+            return Math.floor(Math.random() * (100 - 40 + 1)) + 40;
+        }
+
+        function getGradeFromScore(score) {
+            if (score >= 80) return 'A';
+            if (score >= 70) return 'B';
+            if (score >= 60) return 'C';
+            if (score >= 50) return 'D';
+            return 'F';
+        }
+
+        function initializeTable() {
+            while (tableBody.firstChild) {
+                tableBody.removeChild(tableBody.firstChild);
+            }
+            studentNames.forEach((name, index) => {
+                const score = getRandomScore();
+                const row = document.createElement('tr');
+                const cellIndex = document.createElement('td');
+                const cellName = document.createElement('td');
+                const cellScore = document.createElement('td');
+                const cellGrade = document.createElement('td');
+                
+                cellIndex.textContent = index + 1;
+                cellName.textContent = name;
+                cellScore.textContent = score;
+                cellScore.classList.add('score');
+                cellGrade.classList.add('grade');
+
+                row.appendChild(cellIndex);
+                row.appendChild(cellName);
+                row.appendChild(cellScore);
+                row.appendChild(cellGrade);
+                tableBody.appendChild(row);
+            });
+        }
+
+        function calculateAndDisplayGrades() {
+            const rows = tableBody.getElementsByTagName('tr');
+            for (let row of rows) {
+                const scoreCell = row.querySelector('.score');
+                const score = parseInt(scoreCell.textContent, 10);
+                const grade = getGradeFromScore(score);
+                const gradeCell = row.querySelector('.grade');
+                gradeCell.textContent = grade;
+            }
+        
+        }
+        
+        // เรียกใช้งานฟังก์ชันเริ่มต้นได้เลย
+        initializeTable(); 
+    </script>
+
+</body>
+</html>
