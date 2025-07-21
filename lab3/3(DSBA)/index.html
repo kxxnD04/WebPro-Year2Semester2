@@ -40,8 +40,6 @@
     </div>
 
     <script>
-        // ไม่ต้องใช้ addEventListener แล้ว
-        // โค้ดสามารถทำงานได้เลย เพราะ HTML ด้านบนถูกโหลดแล้ว
 
         const studentNames = [
             'สมชาย', 'สมหญิง', 'สมศรี', 'สมปอง', 
@@ -50,7 +48,7 @@
         
         const tableBody = document.getElementById('student-table-body');
 
-        // ... ฟังก์ชันทั้งหมดเหมือนเดิม ...
+
         function getRandomScore() {
             return Math.floor(Math.random() * (100 - 40 + 1)) + 40;
         }
@@ -100,8 +98,6 @@
             }
         
         }
-        
-        // เรียกใช้งานฟังก์ชันเริ่มต้นได้เลย
         initializeTable(); 
     </script>
 
